@@ -29,9 +29,11 @@ allprojects {
     
 }
 
+
 2 in app module's build.gradle, add this line
 
     compile 'com.github.McoyJiang:ListVideoManager:v1.0'
+    
 
 3 in xml layout, using McoyVideoView tab declare this UI widget
 
@@ -39,11 +41,13 @@ allprojects {
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+        
 
 4 in Activity, find this widget and set video url
 
 McoyVideoView videoView = ((McoyVideoView) findViewById(R.id.videoViewTest));
 
 videoView.setVideoUrl("this is the video url");
+
 
 5 when McoyVideoView is clicked on device, the online video will play automatically whith MediaController shown!!
