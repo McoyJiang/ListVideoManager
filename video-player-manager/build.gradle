@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.McoyJiang'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "0.2"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    v_picasso = '2.5.3-SNAPSHOT'
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile "com.squareup.picasso:picasso:$v_picasso"
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+}
