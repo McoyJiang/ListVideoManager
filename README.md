@@ -2,6 +2,7 @@
 video player in ListView or RecyclerView
 
 ![image](https://github.com/McoyJiang/ListVideoManager/raw/master/IMAGES/listvideo.gif)
+![image](https://github.com/McoyJiang/ListVideoManager/raw/master/IMAGES/listvideo2.gif)
 
 
 This is library to solve Single MediaPlayer in ListView or RecyclerView.
