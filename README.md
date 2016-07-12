@@ -31,7 +31,7 @@ allprojects {
 
 2 in app module's build.gradle, add this line
 
-compile 'com.github.McoyJiang:ListVideoManager:v1.0'
+    compile 'com.github.McoyJiang:ListVideoManager:v1.0'
 
 3 in xml layout, using McoyVideoView tab declare this UI widget
 
