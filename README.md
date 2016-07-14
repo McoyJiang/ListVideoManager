@@ -3,6 +3,8 @@ video player in ListView or RecyclerView
 
 ![image](https://github.com/McoyJiang/ListVideoManager/raw/master/IMAGES/listvideo2.gif)
 
+![image](https://github.com/McoyJiang/ListVideoManager/raw/master/IMAGES/listvideo3.gif)
+
 
 This is library to solve Single MediaPlayer in ListView or RecyclerView.
 Using this lib, it is easy to play video online. Besides, you can ues McoyVideoView in ListView's item layout.
