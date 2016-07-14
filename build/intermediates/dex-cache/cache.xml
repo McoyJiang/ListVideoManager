@@ -2,74 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/axing/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.3-SNAPSHOT/701317519d167cb817b6335667a23f1b1d0cab24/picasso-2.5.3-SNAPSHOT.jar"
+        jar="/Users/axing/Downloads/work_dir/my_github/ListVideoManager/app/build/intermediates/exploded-aar/com.github.McoyJiang/video-player-manager/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.3"
-        sha1="701317519d167cb817b6335667a23f1b1d0cab24">
-        <dex dex="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/pre-dexed/debug/picasso-2.5.3-SNAPSHOT_8918eb62b937dd3909d2f33a615c1451d865b252.jar" />
-    </item>
-    <item
-        jar="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_4769eaf7d601a8c87bec417246d2d0e10c11c0a8.jar" />
-    </item>
-    <item
-        jar="/Users/axing/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
-        <dex dex="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/pre-dexed/debug/okio-1.8.0_3ccf825abf0fec7aab5e21d70145ab3e139281d0.jar" />
-    </item>
-    <item
-        jar="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_b4a719e6811b9f645c1b7777debaa080f7ea0be2.jar" />
-    </item>
-    <item
-        jar="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_10a0b5ca72853eed1ec3eea2c0746681ea69015d.jar" />
-    </item>
-    <item
-        jar="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_aff279275279cc63b2bc0f055f0d0001a7b86e4b.jar" />
-    </item>
-    <item
-        jar="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/exploded-aar/McoyVideoManager/video-player-manager/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="257f1a10edb8c49941bc472b91ed2607bee44534">
-        <dex dex="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/pre-dexed/debug/McoyVideoManager-video-player-manager-unspecified_6bcb1991f671851435ae68644d531c2828684277.jar" />
-    </item>
-    <item
-        jar="/Users/axing/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.1/19047bdb6a4fc00a44124f64ca98e88fc204e7e3/okhttp-3.3.1.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="19047bdb6a4fc00a44124f64ca98e88fc204e7e3">
-        <dex dex="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/pre-dexed/debug/okhttp-3.3.1_496385e02f2535b270f980f7766b9bab0d779824.jar" />
-    </item>
-    <item
-        jar="/Users/axing/Downloads/mac_develop/android-sdk-macosx-2/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_1376e5f5efebdcb6a7c66255f2438e9320b600de.jar" />
-    </item>
-    <item
-        jar="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/Users/axing/AndroidStudioProjects/MyProject/McoyVideoManager/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_3a8d7f281ccc44a9ff00d5fb12acbf5c0aa1baba.jar" />
+        sha1="bc679ddcd8ef99f8a0ebfb631026f33c035b7b7c">
+        <dex dex="/Users/axing/Downloads/work_dir/my_github/ListVideoManager/app/build/intermediates/pre-dexed/debug/com.github.McoyJiang-video-player-manager-unspecified_b5ea9ffac0b10d3258682ff4606270c24e042c3d.jar" />
     </item>
 
 </items>

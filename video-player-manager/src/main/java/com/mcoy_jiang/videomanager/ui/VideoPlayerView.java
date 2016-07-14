@@ -2,7 +2,9 @@ package com.mcoy_jiang.videomanager.ui;
 
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.SurfaceTexture;
 import android.media.MediaPlayer;
@@ -13,6 +15,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.TextureView;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.mcoy_jiang.videomanager.Config;
 import com.mcoy_jiang.videomanager.utils.HandlerThreadExtension;
@@ -787,11 +792,29 @@ public class VideoPlayerView extends ScalableTextureView
 
     @Override
     public void setFullscreen(boolean fullscreen) {
-
+        int screenOrientation = fullscreen ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+        setFullscreen(fullscreen, screenOrientation);
     }
 
     @Override
     public void setFullscreen(boolean fullscreen, int screenOrientation) {
 
+        if (fullscreen) {
+            if (mcoyVideoView != null) {
+                mcoyVideoView.setFullscreen(fullscreen, screenOrientation);
+            }
+        } else {
+            if (mcoyVideoView != null) {
+                mcoyVideoView.setFullscreen(fullscreen, screenOrientation);
+            }
+        }
+        mMediaController.toggleButtons(fullscreen);
+    }
+
+    private McoyVideoView mcoyVideoView;
+
+    public void setParent(McoyVideoView mcoyVideoView) {
+        this.mcoyVideoView = mcoyVideoView;
     }
 }

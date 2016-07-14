@@ -1,6 +1,13 @@
 package com.mcoy_jiang.videomanager.ui;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,6 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.mcoy_jiang.videomanager.Config;
 import com.mcoy_jiang.videomanager.manager.SingleVideoPlayerManager;
 import com.volokh.danylo.video_player_manager.R;
 
@@ -24,8 +32,15 @@ public class McoyVideoView extends RelativeLayout implements MediaPlayerWrapper.
     private ImageView mcoyPlayImage;
     private String mVideoUrl;
 
+    /**
+     * mcoy add for VideoPlayerView setFullScreen function
+     */
+    private Context mContext;
+
     public McoyVideoView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        mContext = context;
 
         videoManager = SingleVideoPlayerManager.getInstance();
 
@@ -76,6 +91,7 @@ public class McoyVideoView extends RelativeLayout implements MediaPlayerWrapper.
          * 分别初始化VideoPlayerView和MediaController
          */
         videoView = ((VideoPlayerView) findViewById(R.id.mcoyVideoView));
+        videoView.setParent(this);
         videoController = ((UniversalMediaController) findViewById(R.id.mcoyVideoController));
 
         /**
@@ -98,6 +114,10 @@ public class McoyVideoView extends RelativeLayout implements MediaPlayerWrapper.
     @Override
     public void onVideoCompletionMainThread() {
         Log.e("TAG", "onVideoCompletionMainThread: ");
+
+        if (isFullScreen) {
+            setFullscreen(false);
+        }
         mcoyPieImage.setVisibility(VISIBLE);
         mcoyPlayImage.setVisibility(VISIBLE);
     }
@@ -131,4 +151,116 @@ public class McoyVideoView extends RelativeLayout implements MediaPlayerWrapper.
 
         playNewVideo();
     }
+
+    private boolean isFullScreen;
+    private float xScale;
+    private float yScale;
+
+    public void setFullscreen(boolean fullscreen) {
+        int screenOrientation = fullscreen ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+        setFullscreen(fullscreen, screenOrientation);
+    }
+
+    /**
+     *
+     * @param fullScreen
+     * @param screenOrientation 此参数暂时用不到，后续可能会使用
+     */
+    public void setFullscreen(boolean fullScreen, int screenOrientation) {
+        final RelativeLayout.LayoutParams lp = (LayoutParams) getLayoutParams();
+
+        if (fullScreen) {
+            xScale = (float) (getResources().getDisplayMetrics().widthPixels - 20) / getHeight();
+            yScale = (float) (getResources().getDisplayMetrics().heightPixels) / getWidth();
+
+            if (Config.SHOW_LOGS) {
+                Log.e("TAG", "onAnimationEnd: getWidth is " + getWidth() +
+                        " screenWidth is " + getResources().getDisplayMetrics().widthPixels
+                        + "getHeight is " + getHeight() + " screenHeight is "
+                        + getResources().getDisplayMetrics().heightPixels);
+                Log.e("TAG", "onAnimationEnd: xScale is " + xScale + " yScale is " + yScale);
+            }
+
+            ObjectAnimator rotateAnim = ObjectAnimator.ofFloat(this, "rotation", getRotation(), 90);
+            rotateAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    Float animatedValue = (Float) animation.getAnimatedValue();
+                    float width = (animatedValue * xScale / 90) < 1 ? 1 : animatedValue * xScale / 90;
+                    float height = (animatedValue * yScale / 90) < 1 ? 1 : animatedValue * yScale / 90;
+
+                    if (Config.SHOW_LOGS) {
+                        Log.e("TAG", "onAnimationUpdate: animatedValue is " + animatedValue + " yLoc is " + getTranslationY());
+                        Log.e("TAG", "onAnimationUpdate: width is " + width + " height is " + height);
+                    }
+
+                    setScaleX(width);
+                    setScaleY(height);
+                }
+            });
+            rotateAnim.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+                    lp.addRule(CENTER_IN_PARENT);
+                    setLayoutParams(lp);
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                }
+                @Override
+                public void onAnimationCancel(Animator animation) {
+                }
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+                }
+            });
+            AnimatorSet animSet = new AnimatorSet();
+            animSet.setDuration(500);
+            animSet.play(rotateAnim);
+            animSet.start();
+
+            isFullScreen = true;
+        } else {
+            ObjectAnimator rotateAnim = ObjectAnimator.ofFloat(this, "rotation", getRotation(), 0);
+            rotateAnim.setDuration(500);
+            rotateAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    Float animatedValue = (Float) animation.getAnimatedValue();
+                    Log.e("TAG", "onAnimationUpdate: animatedValue is " + animatedValue + " yLoc is " + getTranslationY());
+                    float a = (animatedValue * xScale / 90) < 1 ? 1 : animatedValue * xScale / 90;
+                    float b = (animatedValue * yScale / 90) < 1 ? 1 : animatedValue * yScale / 90;
+                    Log.e("TAG", "onAnimationUpdate: a is " + a + " b is " + b);
+                    setScaleX(a);
+                    setScaleY(b);
+                }
+            });
+            rotateAnim.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+                    if (Build.VERSION.SDK_INT > 17) {
+                        lp.removeRule(CENTER_IN_PARENT);
+                        setLayoutParams(lp);
+                    }
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                }
+                @Override
+                public void onAnimationCancel(Animator animation) {
+                }
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+                }
+            });
+            rotateAnim.start();
+
+            isFullScreen = false;
+        }
+
+    }
+
 }
