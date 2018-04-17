@@ -36,7 +36,7 @@ import java.util.Set;
  * It ensures that MediaPlayer methods are called from not main thread.
  * MediaPlayer methods are directly connected with hardware. That's why they should not be called from UI thread
  *
- * @author danylo.volokh
+ * @author Danny.姜
  */
 public class VideoPlayerView extends ScalableTextureView
         implements TextureView.SurfaceTextureListener,

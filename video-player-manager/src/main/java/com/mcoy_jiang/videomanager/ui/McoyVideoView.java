@@ -170,9 +170,15 @@ public class McoyVideoView extends RelativeLayout implements MediaPlayerWrapper.
     public void setFullscreen(boolean fullScreen, int screenOrientation) {
         final RelativeLayout.LayoutParams lp = (LayoutParams) getLayoutParams();
 
+        int videoWidth = getWidth();
+        int videoHeight = getHeight();
+
+        int screenWidth = getResources().getDisplayMetrics().widthPixels;
+        int screenHeight = getResources().getDisplayMetrics().heightPixels;
+
         if (fullScreen) {
-            xScale = (float) (getResources().getDisplayMetrics().widthPixels - 20) / getHeight();
-            yScale = (float) (getResources().getDisplayMetrics().heightPixels) / getWidth();
+            xScale = (float) (screenWidth - 20) / getHeight();
+            yScale = (float) (screenHeight) / getWidth();
 
             if (Config.SHOW_LOGS) {
                 Log.e("TAG", "onAnimationEnd: getWidth is " + getWidth() +
@@ -197,23 +203,6 @@ public class McoyVideoView extends RelativeLayout implements MediaPlayerWrapper.
 
                     setScaleX(width);
                     setScaleY(height);
-                }
-            });
-            rotateAnim.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animation) {
-                    lp.addRule(CENTER_IN_PARENT);
-                    setLayoutParams(lp);
-                }
-
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                }
-                @Override
-                public void onAnimationCancel(Animator animation) {
-                }
-                @Override
-                public void onAnimationRepeat(Animator animation) {
                 }
             });
             AnimatorSet animSet = new AnimatorSet();
