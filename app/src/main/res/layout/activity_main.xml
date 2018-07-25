@@ -7,5 +7,5 @@
     <com.mcoy_jiang.videomanager.ui.McoyVideoView
         android:id="@+id/vvv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></com.mcoy_jiang.videomanager.ui.McoyVideoView>
+        android:layout_height="wrap_content" />
 </RelativeLayout>

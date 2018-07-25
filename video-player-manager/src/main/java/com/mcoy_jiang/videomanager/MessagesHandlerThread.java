@@ -24,7 +24,7 @@ public class MessagesHandlerThread {
     private static final boolean SHOW_LOGS = Config.SHOW_LOGS;
 
     private final Queue<Message> mPlayerMessagesQueue = new ConcurrentLinkedQueue<>();
-    private final com.mcoy_jiang.videomanager.PlayerQueueLock mQueueLock = new com.mcoy_jiang.videomanager.PlayerQueueLock();
+    private final PlayerQueueLock mQueueLock = new PlayerQueueLock();
     private final Executor mQueueProcessingThread = Executors.newSingleThreadExecutor();
 
     private AtomicBoolean mTerminated = new AtomicBoolean(false); // TODO: use it

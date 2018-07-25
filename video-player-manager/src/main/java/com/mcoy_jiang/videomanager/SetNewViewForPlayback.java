@@ -29,8 +29,8 @@ public class SetNewViewForPlayback extends PlayerMessage {
     }
 
     @Override
-    protected com.mcoy_jiang.videomanager.PlayerMessageState stateBefore() {
-        return com.mcoy_jiang.videomanager.PlayerMessageState.SETTING_NEW_PLAYER;
+    protected PlayerMessageState stateBefore() {
+        return PlayerMessageState.SETTING_NEW_PLAYER;
     }
 
     @Override
